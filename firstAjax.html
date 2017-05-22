@@ -6,8 +6,13 @@
 	<link href="" type="text/css" rel="stylesheet"></link>
 	<script lang="javascript">
 		$().ready(function() {
-			$.get("http://ip.jsontest.com/", function(data) {
-				console.log(data;)
+			$.get("http://echo.jsontest.com/cool_language/jquery/DotNet/CSharp", function(response) {
+				//note no selector before.get - this is just getting info from the net and not affecting the page
+				console.log(response);
+				// asking for data from jsontest.com, the site will return data which jquery is going to put in "data"
+				// inside the anonymous function we can do something with the data!
+
+
 			});
 		});
 	</script>
