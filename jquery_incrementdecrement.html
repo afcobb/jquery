@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+	<link href="" type="text/css" rel="stylesheet"></link>
+	<script lang="javascript">
+		$().ready(function() {
+		var inputValue = $("input").val()
+					console.log ("The value in the input box is", inputValue)
+			$("button").click(function() {
+					var btnName = $(this).text();
+						console.log("The button was clicked", btnName)
+				});
+		var i = 0 
+			$("#increase").click(function() {
+				i++ 
+				display()
+				console.log("Increase is clicked")
+			})
+
+			$("#decrease").click(function() {
+				i--
+				display()
+				console.log("Decrease is clicked")
+					})
+		function display () {
+			console.log("Call display")
+			$("input").val(i)
+			var rbcolor
+			if(i % 2 != 0)
+			rbcolor = "black"
+			else
+			rbcolor = "red"
+			var fontstyle
+			if(i % 3 != 0)
+			$("input").css("font-style", "normal")
+			else
+			$("input").css("font-style", "italic")
+			$("input").css("color", rbcolor)
+
+		}
+		
+
+	});
+	</script>
+	<style></style>
+</head>
+<body>
+	<input id= "input" name="counter" value="0"></input>
+	<button id="increase">Increase</button>
+	<button id="decrease">Decrease</button>
+
+</body>
+</html>

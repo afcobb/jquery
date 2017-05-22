@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+	<link href="" type="text/css" rel="stylesheet"></link>
+	<script lang="javascript">
+
+	$().ready(function() {
+				// init statements go here
+				var tableRow1 = "<tr><td>ID</td><td>Name</td><td>Address</td><td>City/State/Postal</td><td>Credit Limit</tr>"
+				var tableRow2 = "<tr><td>1000</td><td>Waldorf Electronics</td><td>123 Any Street</td><td>Berlin, Germany ABC123</td><td>100000</tr>"
+				var tableRow3 = "<tr><td>1010</td><td>Google</td><td>1 Google Way</td><td>Mountain View, CA 12345</td><td>1000000</tr>"
+				var tableRow4 = "<tr><td>1020</td><td>Native Instruments</td><td>2 Guitar Way</td><td>New York, NY, 10101</td><td>10000</tr>"
+	
+				$("tbody").append(tableRow1).append(tableRow2).append(tableRow3).append(tableRow4);
+					// the append command lets us add anything we want to the tbody tag, here it adds each row
+					
+	});
+</script>
+	<style></style>
+</head>
+<body>
+	<table>
+	<tbody>
+	</tbody>
+	</table>
+</body>
+</html>
