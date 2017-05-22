@@ -5,6 +5,8 @@
 	<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
 	<link href="" type="text/css" rel="stylesheet"></link>
 	<script lang="javascript">
+			// $(document).ready means "when the document is completely  loaded do this...
+		// inside the parens after ready is a command to execute one function, here its an anonymous function
 		$(document).ready(function() {
 				// init statements go here and are executed when the document is loaded, can be abbrev'd $().ready
 				// ALL jquery statements should be in this construct
@@ -21,19 +23,33 @@
 					$("aLabel").hide();
 				}
 					// link up button click with jquery! 
-				$("#go").click(function() {
-						console.log("The button was clicked")
+				$("button").click(function() {
+					var btnName = $(this).text();
+						// this represents which of the actual 4 buttons was clicked a returns it with a variable of btnName
+						console.log("The button was clicked", btnName)
 				});
 					// selector is in double quotes, it's the id go from the html button
 					// .click is the method which contains an anonymous function telling it what to do upon click 
+					$("button").attr("class", "makeGreen"); 
+					//this designates a class for the buttons, attr abbreviates attribute
+					var inputValue = $("input").val()
+					console.log ("The value in the input box is", inputValue)
+					$("div").html(
+							"<label>Click me!</label><button>Click me too!</button>"
+						);
+							// this is us putting a label and a button in a div with jquery  	
 			});
-		// $(document).ready means "when the document is completely  loaded do this...
-		// inside the parens after ready is a command to execute one function, here its an anonymous function
+
 	</script>
 	<style></style>
 </head>
 <body>
 	<label id="aLabel">This is a label.</label>
-	<button id="go">The Go Button</button>
+	<button id="go">The Go1 Button</button>
+	<button id="go">The Go2 Button</button>
+	<button id="go">The Go3 Button</button>
+	<button id="go">The Go4 Button</button>
+	<input value="default value" />
+	<div></div>
 </body>
 </html>
