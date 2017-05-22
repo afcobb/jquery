@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+	<link href="" type="text/css" rel="stylesheet"></link>
+	<script lang="javascript">
+		$(document).ready(function() {
+				// init statements go here and are executed when the document is loaded, can be abbrev'd $().ready
+				// ALL jquery statements should be in this construct
+				// below are the selectors that we use to find the right html tags to apply jquery to
+				var isRed = true 
+				if (isRed == true) {
+				$("#aLabel")
+				.css("font-family", "Tahoma")
+					// this tells jquery that we're going to apply whatever follows #aLabel to the corresponding html tag
+						// in this example, there is a .css that designates the font for aLabel
+				.css("color", "red");
+						// and this example changes the color of aLabel
+				} else {
+					$("aLabel").hide();
+				}
+					// link up button click with jquery! 
+				$("#go").click(function() {
+						console.log("The button was clicked")
+				});
+					// selector is in double quotes, it's the id go from the html button
+					// .click is the method which contains an anonymous function telling it what to do upon click 
+			});
+		// $(document).ready means "when the document is completely  loaded do this...
+		// inside the parens after ready is a command to execute one function, here its an anonymous function
+	</script>
+	<style></style>
+</head>
+<body>
+	<label id="aLabel">This is a label.</label>
+	<button id="go">The Go Button</button>
+</body>
+</html>
