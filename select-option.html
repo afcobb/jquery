@@ -8,8 +8,20 @@
 		//jquery code to interact with values
 		$().ready(function() {
 			$("#go").click(function(){
-				var selectedGrade = $("#grade").val(); // value of selectedGrade = the value of the select box
-				$("#selected").text(selectedGrade); // stuffing the selected value into the label 
+				var selectedGrade = $("#grade").val(); // value of selectedGrade = the value of the sel
+				//the password
+				var thePassword = $("#pwd").val();
+				$("#selected").text(selectedGrade)
+				// password display
+				var thePassword = $("#pwd").val();
+				$("#pwdDisplay").text(thePassword);
+				var selectedRadioButtonValue = $("input[name='grades']:checked").val(); //the input control is qualified by a selector, so we're only getting the input control with the name grades. specfically we're getting the checked one.
+				$("#radio").text(selectedRadioButtonValue);
+				//checkboxes 
+				var knowCs = $("#cs").is(":checked"); // the .is command returns a boolean value, defined below
+				var knowJava = $("#java").is(":checked");
+				$("#lblcs").text(knowCs ? "Yes" : "No"); // if the boolean value is true, yes, if false, no - the ternary operation
+				$("#lbljava").text(knowJava ? "Yes" : "No");
 			});
 		});
 	</script>
@@ -18,13 +30,36 @@
 <body>
 	<button id="go">Display Value</button>
 	<!-- SELECT/OPTION -->
+	<div>
 	<select id="grade" name="grade"> <!-- be sure to include both id and name select tag -->
 		<option value="A">100 - 92</option> <!-- typically values are different than displays, but dont have to be -->
 		<option value="B">91 - 83</option>
-		<option value="C">82 - 70</option>
+		<option value="C" selected>82 - 70</option>
 		<option value="D">69 - 65</option>
 		<option value="F">64 - 0</option>
 	</select>
 	<label id="selected"></label>	<!-- value that gets selected will get stuff into label below -->
+	</div>
+	<div>
+	<!--PASSWORD -->
+	<label>Password</label>
+	<input id="pwd" type="password" />
+	<label id="pwdDisplay"></label> <!--display the pword -->
+	</div>
+	<div>
+	<!-- RADIO BUTTONS -->
+	<input type="radio" value="1" name="grades">A</input>
+	<input type="radio" value="2" name="grades" checked>B</input> <!-- you mark the selected one with checked -->
+	<input type="radio" value="3" name="grades">C</input>
+	<label id="radio"></label>
+	</div>
+	<div>
+	<!-- CHECK BOXES-->
+	<input type="checkbox" id="cs" value="C#.net">I know C#.net</input><br />
+	<input type="checkbox" id="java" value="Java">I know Java</input>
+	<p>I know C#.net <label id="lblcs"></label></p>
+	<p>I know Java <label id="lbljava"></label></p> <!-- messages in the labels pertaining to the two options -->
+
+	</div>
 </body>
 </html>
