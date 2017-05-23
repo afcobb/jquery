@@ -6,42 +6,39 @@
 	<link href="" type="text/css" rel="stylesheet"></link>
 	<script lang="javascript">
 		$().ready(function() {
-			$("#cities").click(function(){
+			$("#go").click(function(){
 				var selectedCity = $("#cities").val();	
-	});
-	//radio control
-	var selectedRadioButtonValue = $("input[name='cities']:checked").val(); 
-			$("#radio").text(selectedRadioButtonValue);
-	//password checker
-	function checkPass()
-{
-    //Store the password field objects into variables ...
-    var pass1 = document.getElementById('pass1');
-    var pass2 = document.getElementById('pass2');
-    //Store the Confimation Message Object ...
-    var message = document.getElementById('confirmMessage');
-    //Set the colors we will be using ...
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
-    //Compare the values in the password field 
-    //and the confirmation field
-    if(pass1.value == pass2.value){
-        //The passwords match. 
-        //Set the color to the good color and inform
-        //the user that they have entered the correct password 
-        pass2.style.backgroundColor = goodColor;
-        message.style.color = goodColor;
-        message.innerHTML = "Passwords Match!"
-    }else{
-        //The passwords do not match.
-        //Set the color to the bad color and
-        //notify the user.
-        pass2.style.backgroundColor = badColor;
-        message.style.color = badColor;
-        message.innerHTML = "Passwords Do Not Match!"
-    }
-}  
-	</script>
+				var likeMetal = $("#metal").is(":checked"); 
+				var likeRock = $("#rock").is(":checked");
+				var likeCountry = $("#country").is(":checked");
+				var likeHiphop = $("#hiphop").is(":checked");
+				var likeClassical = $("#classical").is(":checked");
+				var likeBluegrass = $("#bluegrass").is(":checked");
+				$("#lblmetal").text(likeMetal ? "Yes" : "No");
+				$("#lblrock").text(likeRock ? "Yes" : "No");
+				$("#lblcountry").text(likeCountry ? "Yes" : "No");
+				$("#lblhiphop").text(likeHiphop ? "Yes" : "No");
+				$("#lblClassical").text(likeClassical ? "Yes" : "No");
+				$("#lblbluegrass").text(likeBluegrass ? "Yes" : "No")
+				//password
+			});
+			});
+		$().ready(function() {
+		function checkPasswordMatch() {
+    var password = $("#txtNewPassword").val();
+    var confirmPassword = $("#txtConfirmPassword").val();
+
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("Passwords do not match!");
+    else
+        $("#divCheckPasswordMatch").html("Passwords match.");
+}
+
+$(document).ready(function () {
+   $("#txtNewPassword, #txtConfirmPassword").keyup(checkPasswordMatch)
+})
+})
+</script>
 <style></style>
 </head>
 <body>
@@ -51,22 +48,18 @@
 	<input id="cell" type="text"></input><br />
 	<label for="email">Email</label>
 	<input id="email" type="text"></input><br />
-<link rel="stylesheet" type="text/css" href="/code_examples/tutorial.css">
-<script type="text/javascript" src="/code_examples/passtest.js"></script>
-<div class="tutorialWrapper">
-    <form>
-        <div class="fieldWrapper">
-            <label for="pass1">Password:</label>
-            <input type="password" name="pass1" id="pass1">
-        </div>
-        <div class="fieldWrapper">
-            <label for="pass2">Confirm Password:</label>
-            <input type="password" name="pass2" id="pass2" onkeyup="checkPass(); return false;">
-            <span id="confirmMessage" class="confirmMessage"></span>
-        </div>
-    </form>
+<div class="td">
+<label for="txtNewPassword">Password</label>
+    <input type="password" id="txtNewPassword" />
+</div>
+<div class="td">
+	<label for="txtConfirmPassword">Retype Password</label>
+    <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();" />
+</div>
+    <div class="registrationFormAlert" id="divCheckPasswordMatch">
 </div>
 <!-- Cities Lived In Selection-->
+<br />
 <div>
 	<select id="cities" name="cities"> <!-- be sure to include both id and name select tag -->
 		<option value="1">New York, NY</option> 
@@ -97,8 +90,9 @@
 	<p>I like rock and roll <label id="lblrock"></label></p>
 	<p>I like country <label id="lblcountry"></label></p>
 	<p>I like hiphop <label id="lblhiphop"></label></p>
-	<p>I know classical <label id="lblclassical"></label></p>
-	<p>I know bluegrass <label id="lblbluegrass"></label></p>
-<button id="go">Submit Info</button>
+	<p>I like classical <label id="lblclassical"></label></p>
+	<p>I like bluegrass <label id="lblbluegrass"></label></p>
+
+<button id="go">Submit</button>
 </body>
 </html>
