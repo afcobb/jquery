@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script> 
+	<link href="" type="text/css" rel="stylesheet"></link>
+	<script lang="javascript">
+		//jquery code to interact with values
+		$().ready(function() {
+			$("#go").click(function(){
+				var selectedGrade = $("#grade").val(); // value of selectedGrade = the value of the select box
+				$("#selected").text(selectedGrade); // stuffing the selected value into the label 
+			});
+		});
+	</script>
+	<style></style>
+</head>
+<body>
+	<button id="go">Display Value</button>
+	<!-- SELECT/OPTION -->
+	<select id="grade" name="grade"> <!-- be sure to include both id and name select tag -->
+		<option value="A">100 - 92</option> <!-- typically values are different than displays, but dont have to be -->
+		<option value="B">91 - 83</option>
+		<option value="C">82 - 70</option>
+		<option value="D">69 - 65</option>
+		<option value="F">64 - 0</option>
+	</select>
+	<label id="selected"></label>	<!-- value that gets selected will get stuff into label below -->
+</body>
+</html>
