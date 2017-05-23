@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script> 
+	<link href="" type="text/css" rel="stylesheet"></link>
+	<script lang="javascript">
+		$().ready(function() {
+			$("#cities").click(function(){
+				var selectedCity = $("#cities").val();	
+	});
+	//radio control
+	var selectedRadioButtonValue = $("input[name='cities']:checked").val(); 
+			$("#radio").text(selectedRadioButtonValue);
+	//password checker
+	function checkPass()
+{
+    //Store the password field objects into variables ...
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(pass1.value == pass2.value){
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!"
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!"
+    }
+}  
+	</script>
+<style></style>
+</head>
+<body>
+	<label for="name">Name</label>
+	<input id="name" type="text"></input><br />
+	<label for="cell">Cell Phone</label>
+	<input id="cell" type="text"></input><br />
+	<label for="email">Email</label>
+	<input id="email" type="text"></input><br />
+<link rel="stylesheet" type="text/css" href="/code_examples/tutorial.css">
+<script type="text/javascript" src="/code_examples/passtest.js"></script>
+<div class="tutorialWrapper">
+    <form>
+        <div class="fieldWrapper">
+            <label for="pass1">Password:</label>
+            <input type="password" name="pass1" id="pass1">
+        </div>
+        <div class="fieldWrapper">
+            <label for="pass2">Confirm Password:</label>
+            <input type="password" name="pass2" id="pass2" onkeyup="checkPass(); return false;">
+            <span id="confirmMessage" class="confirmMessage"></span>
+        </div>
+    </form>
+</div>
+<!-- Cities Lived In Selection-->
+<div>
+	<select id="cities" name="cities"> <!-- be sure to include both id and name select tag -->
+		<option value="1">New York, NY</option> 
+		<option value="2">Gary, IN</option>
+		<option value="3" selected>Bellevue, KY</option>
+		<option value="4">Cincinnati, OH</option>
+		<option value="5">Portland, OR</option>
+	</select>
+	<label id="selected"></label>	<!-- value that gets selected will get stuff into label below -->
+	</div>
+<!-- Radio Button to choose city-->
+	<div>
+	<input type="radio" value="1" name="cities">New York, NY</input>
+	<input type="radio" value="2" name="grades">Gary, IN</input> <!-- you mark the selected one with checked -->
+	<input type="radio" value="3" name="grades" checked>Bellevue, KY</input>
+	<input type="radio" value="4" name="grades">Cincinnati, OH</input>
+	<input type="radio" value="5" name="grades">Portland, OR</input>
+	<label id="radio"></label>
+	</div>
+	<!-- Checkboxes for musical interest-->
+	<input type="checkbox" id="metal" value="metal">I like heavy metal</input><br />
+	<input type="checkbox" id="rock" value="rock">I like rock</input><br />
+	<input type="checkbox" id="country" value="country">I like country</input><br />
+	<input type="checkbox" id="hiphop" value="hiphop">I like hiphop</input><br />
+	<input type="checkbox" id="classical" value="classical">I like classical</input><br />
+	<input type="checkbox" id="bluegrass" value="bluegrass">I like bluegrass</input>
+	<p>I like heavy metal<label id="lblmetal"></label></p>
+	<p>I like rock and roll <label id="lblrock"></label></p>
+	<p>I like country <label id="lblcountry"></label></p>
+	<p>I like hiphop <label id="lblhiphop"></label></p>
+	<p>I know classical <label id="lblclassical"></label></p>
+	<p>I know bluegrass <label id="lblbluegrass"></label></p>
+<button id="go">Submit Info</button>
+</body>
+</html>
